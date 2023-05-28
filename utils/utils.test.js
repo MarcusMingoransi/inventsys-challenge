@@ -30,19 +30,19 @@ describe("Is Valid Thumbnail Image Path", () => {
 });
 
 describe("Check Unix convertion", () => {
-  it("Should return true if the unix conversion match: 11 hours", () => {
+  it("Should return true if the unix conversion match: 11 hours ago", () => {
     const unixTimestamp = 1685269344;
     const result = convertUnixDate(unixTimestamp);
-    expect(result).toMatch("11 hours");
+    expect(result).toMatch("11 hours ago");
   });
-  it("Should return true if the unix conversion match: 2 months", () => {
+  it("Should return true if the unix conversion match: 2 months ago", () => {
     const unixTimestamp = 1679961600;
     const result = convertUnixDate(unixTimestamp);
-    expect(result).toMatch("2 months");
+    expect(result).toMatch("2 months ago");
   });
-  it("Should return true if the unix conversion match: 3 years", () => {
+  it("Should return true if the unix conversion match: 3 years ago", () => {
     const unixTimestamp = 1590700986;
     const result = convertUnixDate(unixTimestamp);
-    expect(result).toMatch("3 years");
+    expect(result).toMatch("3 years ago");
   });
 });
