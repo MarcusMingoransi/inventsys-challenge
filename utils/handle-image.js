@@ -1,5 +1,6 @@
 import { checkValidUrl } from "./handle-general";
 
 export const checkThumbnailValid = (url = "") => {
-  return url && checkValidUrl(url);
+  const imagePathRegex = /\.(jpeg|jpg|gif|png)$/i;
+  return !!url && checkValidUrl(url) && imagePathRegex.test(url);
 };
