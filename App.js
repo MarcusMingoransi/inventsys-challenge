@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from "react-query";
-import PostList from "./components/post-list/post-list";
 import { STALE_TIME } from "./utils";
+import PostList from "./components/post-list";
 
 const queryClient = new QueryClient({
   defaultOptions: {

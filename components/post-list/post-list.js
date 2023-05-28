@@ -7,7 +7,10 @@ import {
   View,
 } from "react-native";
 import {
-  POSTS_URL,
+  POSTS_NEW_URL,
+  POSTS_TOP_URL,
+  POSTS_CONTROVERSIAL_URL,
+  POSTS_HOT_URL,
   checkThumbnailValid,
   convertUnixDate,
   fetchPosts,
@@ -15,12 +18,30 @@ import {
 import { useQuery } from "react-query";
 import { useCallback, useState } from "react";
 import WebView from "react-native-webview";
+import Tabs from "../tabs";
 
-export default PostList = () => {
+const POSTS_SEGMENTS = {
+  New: POSTS_NEW_URL,
+  Top: POSTS_TOP_URL,
+  Controversial: POSTS_CONTROVERSIAL_URL,
+  Hot: POSTS_HOT_URL,
+};
+
+const PostList = () => {
   const [postLink, setPostLink] = useState("");
-  const { data, isLoading, error } = useQuery(["posts"], () =>
-    fetchPosts(POSTS_URL)
+  const [postListLink, setPostListLink] = useState(POSTS_SEGMENTS.New);
+  const [selectedTab, setSelectedTab] = useState("New");
+
+  const tabs = ["New", "Top", "Controversial", "Hot"];
+
+  const { data, isLoading, error } = useQuery(["posts", postListLink], () =>
+    fetchPosts(postListLink)
   );
+
+  const onTabPress = (tab) => {
+    setSelectedTab(tab);
+    setPostListLink(POSTS_SEGMENTS[tab]);
+  };
 
   if (isLoading) {
     return <Text>Loading...</Text>;
@@ -32,6 +53,7 @@ export default PostList = () => {
 
   return (
     <View style={styles.container}>
+      <Tabs tabs={tabs} selectedTab={selectedTab} onPressTab={onTabPress} />
       {postLink && (
         <View
           style={{
@@ -121,3 +143,5 @@ const styles = StyleSheet.create({
     height: 60,
   },
 });
+
+export default PostList;
