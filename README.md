@@ -61,6 +61,15 @@ if a question like this appers, just click 'Enter' to proceed:
 What would you like your Android package name to be?
 ```
 
+for running the tests:
+```bash
+yarn test
+```
+or
+```bash
+npm test
+```
+
 ## Project structure
 
 ```bash
