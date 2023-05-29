@@ -26,6 +26,7 @@ import CommentIcon from "../icons/comment-icon";
 import { styles } from "./styles";
 import LeftArrowIcon from "../icons/left-arror-icon";
 import Loading from "../loading";
+import Error from "../error";
 
 const POSTS_SEGMENTS = {
   New: POSTS_NEW_URL,
@@ -63,7 +64,7 @@ const PostList = () => {
   }
 
   if (error) {
-    return <Text>Error: {error.message}</Text>;
+    return <Error />;
   }
 
   return (
