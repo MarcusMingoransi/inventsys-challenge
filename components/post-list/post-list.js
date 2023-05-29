@@ -74,7 +74,7 @@ const PostList = () => {
         <View style={styles.webViewWrapper}>
           <View style={styles.webViewHeader}>
             <TouchableOpacity onPress={() => setPostLink("")}>
-              <LeftArrowIcon size={24} color="#ffffff" />
+              <LeftArrowIcon size={24} color="#000000" />
             </TouchableOpacity>
           </View>
           <WebView

@@ -77,9 +77,10 @@ export const styles = StyleSheet.create({
   webViewHeader: {
     width: "100%",
     height: 30,
-    backgroundColor: "#8b8989",
+    backgroundColor: "#ffffff",
     display: "flex",
     justifyContent: "center",
     marginBottom: 8,
+    borderRadius: 8,
   },
 });
