@@ -115,3 +115,7 @@ root/
   - Number of comments
 - Opening the post in a Webview
   - When a post is clicked, a webview opens and displays all of the information included inside it.
+
+## Demo
+<img width="399" alt="image" src="https://github.com/MarcusMingoransi/inventsys-challenge/assets/8353673/3cea306a-6a11-4b56-a817-8bc4dd6b2734">
+
