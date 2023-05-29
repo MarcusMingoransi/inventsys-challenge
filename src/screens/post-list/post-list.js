@@ -19,14 +19,14 @@ import {
 import { useQuery } from "react-query";
 import { useCallback, useState } from "react";
 import WebView from "react-native-webview";
-import Tabs from "../tabs";
-import UpArrowIcon from "../icons/up-arrow-icon";
-import DownArrowIcon from "../icons/down-arrow-icon";
-import CommentIcon from "../icons/comment-icon";
+import Tabs from "../../components/tabs";
+import UpArrowIcon from "../../components/icons/up-arrow-icon";
+import DownArrowIcon from "../../components/icons/down-arrow-icon";
+import CommentIcon from "../../components/icons/comment-icon";
 import { styles } from "./styles";
-import LeftArrowIcon from "../icons/left-arror-icon";
-import Loading from "../loading";
-import Error from "../error";
+import LeftArrowIcon from "../../components/icons/left-arror-icon";
+import Loading from "../../components/loading";
+import Error from "../../components/error";
 
 const POSTS_SEGMENTS = {
   New: POSTS_NEW_URL,

@@ -1,6 +1,6 @@
+import { STALE_TIME } from "./src/utils";
+import { PostList } from "./src/screens";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { STALE_TIME } from "./utils";
-import PostList from "./components/post-list";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
