@@ -1,4 +1,12 @@
-import { FlatList, Image, Text, TouchableOpacity, View } from "react-native";
+import {
+  FlatList,
+  Image,
+  RefreshControl,
+  SafeAreaView,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import {
   POSTS_NEW_URL,
   POSTS_TOP_URL,
@@ -9,7 +17,7 @@ import {
   fetchPosts,
 } from "../../utils";
 import { useQuery } from "react-query";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import WebView from "react-native-webview";
 import Tabs from "../tabs";
 import UpArrowIcon from "../icons/up-arrow-icon";
@@ -17,6 +25,7 @@ import DownArrowIcon from "../icons/down-arrow-icon";
 import CommentIcon from "../icons/comment-icon";
 import { styles } from "./styles";
 import LeftArrowIcon from "../icons/left-arror-icon";
+import Loading from "../loading";
 
 const POSTS_SEGMENTS = {
   New: POSTS_NEW_URL,
@@ -29,11 +38,13 @@ const PostList = () => {
   const [postLink, setPostLink] = useState("");
   const [postListLink, setPostListLink] = useState(POSTS_SEGMENTS.New);
   const [selectedTab, setSelectedTab] = useState("New");
+  const [refreshing, setRefreshing] = useState(false);
 
   const tabs = ["New", "Top", "Controversial", "Hot"];
 
-  const { data, isLoading, error } = useQuery(["posts", postListLink], () =>
-    fetchPosts(postListLink)
+  const { data, isLoading, error, refetch } = useQuery(
+    ["posts", postListLink],
+    () => fetchPosts(postListLink)
   );
 
   const onTabPress = (tab) => {
@@ -41,8 +52,14 @@ const PostList = () => {
     setPostListLink(POSTS_SEGMENTS[tab]);
   };
 
+  const onRefresh = useCallback(async () => {
+    setRefreshing(true);
+    await refetch();
+    setRefreshing(false);
+  }, []);
+
   if (isLoading) {
-    return <Text>Loading...</Text>;
+    return <Loading />;
   }
 
   if (error) {
@@ -50,7 +67,7 @@ const PostList = () => {
   }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Tabs tabs={tabs} selectedTab={selectedTab} onPressTab={onTabPress} />
       {postLink && (
         <View style={styles.webViewWrapper}>
@@ -68,7 +85,10 @@ const PostList = () => {
       )}
       <FlatList
         style={styles.postList}
-        data={data.data.children}
+        data={data ? data.data.children : []}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
         renderItem={({ item }) => (
           <TouchableOpacity
             key={item.data.id}
@@ -111,7 +131,7 @@ const PostList = () => {
           </TouchableOpacity>
         )}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 
