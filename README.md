@@ -1,10 +1,10 @@
 # Inventsys Challenge
 
-This project was developed based on the code challenge requirements.
+This project was created in response to the coding challenge guidelines.
 
-## Apêndice
+## Instructions
 
-Running the folllowing steps, you'll be able to run the project locally:
+After completing the steps below, you will be able to run the project locally:
 
 Clone the repository:
 
@@ -100,13 +100,13 @@ root/
 ## Functionalities
 
 - Navigation
-  - Used React navigation, although there is only a single page, it's already structured to add more pages if necessary
+  - Although there is just one page, it is already designed to allow for the addition of extra pages if necessary.
 - Fetching data and Listing posts
-  - Used axios and react-query to fetch the data and created a component to list all the posts. The user can pull down and refetch the current list.
+  - To retrieve the data, I used `axios` and `react-query`, then I constructed a component to display all of the posts. The user can retrieve and reload the current list.
 - Caching posts
-  - The list of posts are fetched and have 2 minutes of cache.
+  - The list of posts is retrieved and cached for 2 minutes.
 - Filtering posts
-  - It was applied 4 post filters and they can be accessed by the tabs component, they are: New, Top, Controversial, Hot
+  - It was applied four post filters, which can be accessible via the tabs component, and they are as follows: New, Top, Controversial, and Hot.
 - Post content, a post contain the following structure:
   - Author and date of creation of the post
   - A thumbnail (if exists)
@@ -114,4 +114,4 @@ root/
   - Number of votes
   - Number of comments
 - Opening the post in a Webview
-  - When a post is pressed, a webview will open and show all the information inside of that
+  - When a post is clicked, a webview opens and displays all of the information included inside it.
