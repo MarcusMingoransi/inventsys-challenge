@@ -55,6 +55,12 @@ or
 yarn android
 ```
 
+if a question like this appers, just click 'Enter' to proceed:
+
+```bash
+What would you like your Android package name to be?
+```
+
 ## Project structure
 
 ```bash
@@ -117,5 +123,5 @@ root/
   - When a post is clicked, a webview opens and displays all of the information included inside it.
 
 ## Demo
-<img width="399" alt="image" src="https://github.com/MarcusMingoransi/inventsys-challenge/assets/8353673/3cea306a-6a11-4b56-a817-8bc4dd6b2734">
 
+<img width="399" alt="image" src="https://github.com/MarcusMingoransi/inventsys-challenge/assets/8353673/3cea306a-6a11-4b56-a817-8bc4dd6b2734">
