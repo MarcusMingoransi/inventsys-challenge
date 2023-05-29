@@ -1,20 +1,20 @@
 import { View, TouchableOpacity, Text, ScrollView } from "react-native";
+import { styles } from "./styles";
 
 const Tabs = ({ tabs, selectedTab, onPressTab }) => {
   return (
     <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-      <View style={{ flexDirection: "row" }}>
+      <View style={styles.tabsWrapper}>
         {tabs.map((tab) => (
           <TouchableOpacity
             key={tab}
             onPress={() => onPressTab(tab)}
             style={{
-              padding: 10,
               borderBottomWidth: selectedTab === tab ? 2 : 0,
-              borderBottomColor: "blue",
+              ...styles.tab,
             }}
           >
-            <Text>{tab}</Text>
+            <Text style={styles.title}>{tab}</Text>
           </TouchableOpacity>
         ))}
       </View>
